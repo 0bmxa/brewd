@@ -32,8 +32,6 @@ const char *executableName = "brewd";
     
     if (file != NULL)
     {
-//        fprintf(file, "%s <%s>[%d] %s\n",
-//                formattedTimeStamp(), executableName, getpid(), message.UTF8String);
         fprintf(file, "%s", logString);
     }
     printf("%s", logString);
@@ -42,7 +40,6 @@ const char *executableName = "brewd";
 }
 
 
-//const char* formattedTimeStamp()
 NSString* formattedTimeStamp()
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -50,29 +47,8 @@ NSString* formattedTimeStamp()
     [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
     [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
     NSString *timeStamp = [dateFormatter stringFromDate:[NSDate date]];
-//    return timeStamp.UTF8String;
     return timeStamp;
 }
-
-
-//void dlog(NSString *message)
-//{
-//    const char *path = [@"~/Desktop/brewd.log" stringByExpandingTildeInPath].UTF8String;
-//    FILE *file = fopen(path, "a+");
-//    
-//    if (file != NULL)
-//    {
-//        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-//        [dateFormatter setLocale:[NSLocale localeWithLocaleIdentifier:@"en_US"]];
-//        [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
-//        [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
-//        NSString *timeStamp = [dateFormatter stringFromDate:[NSDate date]];
-//        
-//        fprintf(file, "%s <brewd>[%d] %s\n", timeStamp.UTF8String, getpid(), message.UTF8String);
-//    }
-//    
-//    fclose(file);
-//}
 
 
 @end

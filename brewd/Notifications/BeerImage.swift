@@ -13,7 +13,6 @@ class BeerImage: NSImage {
     override init(size: NSSize) {
         super.init(size: size)
         
-//        let 🍺 = "🍺" as NSString
         let 🍺 = "🍻" as NSString
         
         self.lockFocus()

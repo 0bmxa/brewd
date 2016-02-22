@@ -33,17 +33,17 @@
 /* Begin PBXFileReference section */
 		EE0329DC1C5A137A00062541 /* DaemonManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DaemonManager.h; sourceTree = "<group>"; };
 		EE0329DD1C5A137A00062541 /* DaemonManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DaemonManager.m; sourceTree = "<group>"; };
-		EE4884281C7B72540004F275 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		EE4884281C7B72540004F275 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = main.swift; path = "Supporting Files/main.swift"; sourceTree = "<group>"; };
 		EE48842A1C7B76740004F275 /* AppManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
 		EE48842D1C7B818E0004F275 /* BeerImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BeerImage.swift; path = Notifications/BeerImage.swift; sourceTree = "<group>"; };
-		EE48842F1C7BC6EF0004F275 /* brewd-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "brewd-Bridging-Header.h"; sourceTree = "<group>"; };
+		EE48842F1C7BC6EF0004F275 /* brewd-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "brewd-Bridging-Header.h"; path = "Supporting Files/brewd-Bridging-Header.h"; sourceTree = "<group>"; };
 		EE996DD31C3F13B5006A4764 /* brewd */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = brewd; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE996DDD1C3F153F006A4764 /* BrewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrewManager.swift; sourceTree = "<group>"; };
-		EEFEBCF41C7AA98F000288BD /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		EEFEBCF41C7AA98F000288BD /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationManager.swift; path = Notifications/NotificationManager.swift; sourceTree = "<group>"; };
 		EEFEBCF61C7B22EF000288BD /* Shell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shell.swift; sourceTree = "<group>"; };
-		EEFEBCFA1C7B2BC2000288BD /* LogFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogFile.h; sourceTree = "<group>"; };
-		EEFEBCFB1C7B2BC2000288BD /* LogFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogFile.m; sourceTree = "<group>"; };
-		EEFEBCFD1C7B378A000288BD /* LogFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogFile.swift; sourceTree = "<group>"; };
+		EEFEBCFA1C7B2BC2000288BD /* LogFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LogFile.h; path = Logging/LogFile.h; sourceTree = "<group>"; };
+		EEFEBCFB1C7B2BC2000288BD /* LogFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LogFile.m; path = Logging/LogFile.m; sourceTree = "<group>"; };
+		EEFEBCFD1C7B378A000288BD /* LogFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LogFile.swift; path = Logging/LogFile.swift; sourceTree = "<group>"; };
 		EEFEBD001C7B4114000288BD /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -61,6 +61,7 @@
 		EE0329DF1C5A15C800062541 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EE4884281C7B72540004F275 /* main.swift */,
 				EE48842F1C7BC6EF0004F275 /* brewd-Bridging-Header.h */,
 				EEFEBD001C7B4114000288BD /* Info.plist */,
 			);
@@ -95,13 +96,12 @@
 		EE996DD51C3F13B5006A4764 /* brewd */ = {
 			isa = PBXGroup;
 			children = (
-				EE4884281C7B72540004F275 /* main.swift */,
 				EE48842A1C7B76740004F275 /* AppManager.swift */,
 				EE0329DC1C5A137A00062541 /* DaemonManager.h */,
 				EE0329DD1C5A137A00062541 /* DaemonManager.m */,
 				EE996DDD1C3F153F006A4764 /* BrewManager.swift */,
-				EE48842C1C7B81760004F275 /* Notifications */,
 				EEFEBCF61C7B22EF000288BD /* Shell.swift */,
+				EE48842C1C7B81760004F275 /* Notifications */,
 				EEFEBCFF1C7B38CC000288BD /* Logging */,
 				EE0329DF1C5A15C800062541 /* Supporting Files */,
 			);
@@ -279,7 +279,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = zerob.mxa.brewd;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "brewd/brewd-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "brewd/Supporting Files/brewd-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -293,7 +293,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = zerob.mxa.brewd;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "brewd/brewd-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "brewd/Supporting Files/brewd-Bridging-Header.h";
 			};
 			name = Release;
 		};
