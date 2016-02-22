@@ -6,7 +6,5 @@
 //  Copyright © 2016 mxa. All rights reserved.
 //
 
-import Foundation
-
-print("Hello, World!")
-
+// Start the app
+_ = AppManager()
