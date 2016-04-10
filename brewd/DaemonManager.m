@@ -13,10 +13,9 @@
 #import "brewd-Swift.h"
 
 @interface DaemonManager ()
-
 @property (nonatomic, strong) BrewManager *brewManager;
-
 @end
+
 
 @implementation DaemonManager
 
@@ -76,13 +75,19 @@ void startDaemon(BrewManager *brewManager)
     
     // TODO: Create a log file ?
     
+    [LogFile log:@"Daemon running."];
+    
+    // Set a session ID (?)
     sessionID = setsid();
     if(sessionID < 0)
     {
-        [LogFile log:@"ERROR: chdir failed: %d", sessionID];
+        [LogFile log:@"ERROR: setsid failed: %d", sessionID];
         exit(EXIT_FAILURE);
     }
+    [LogFile log:@"Session ID set: %d", sessionID];
     
+    
+    // Change the working dir to root
     const char * path = "/";
     int chdirResult = chdir(path);
     if (chdirResult < 0)
@@ -90,24 +95,25 @@ void startDaemon(BrewManager *brewManager)
         [LogFile log:@"ERROR: chdir failed: %d", chdirResult];
         exit(EXIT_FAILURE);
     }
+    [LogFile log:@"Changed working dir."];
     
     
     // Close standard file descriptors
     close(STDIN_FILENO);
     close(STDOUT_FILENO);
     close(STDERR_FILENO);
-    
+    [LogFile log:@"File descriptors closed."];
+
     
     while (true)
     {
         if(daemonShouldStop)
         {
-            [LogFile log:@"Daemon stopped."];
+            [LogFile log:@"Stopping daemon..."];
             break;
         }
         
         [brewManager update];
-        [LogFile log:@"Brew updated."];
         
         // Wait 1 hour
 //        sleep(3600);
@@ -116,7 +122,7 @@ void startDaemon(BrewManager *brewManager)
     
     
     // Finito
-    [LogFile log:@"Exit gracefully."];
+    [LogFile log:@"Daemon stopped."];
     exit(EXIT_SUCCESS);
 }
 

@@ -24,8 +24,13 @@ enum BrewError: ErrorType {
 @objc class BrewManager: NSObject {
     
     func update() {
+        LogFile.log("Starting update...")
+
         let brew = Brew()
+
+        LogFile.log("Updating...")
         let updateSuccess = brew.update()
+        LogFile.log("Update finished.")
         if !updateSuccess {
             Notification.show("Update failed.")
         }

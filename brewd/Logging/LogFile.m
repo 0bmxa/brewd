@@ -43,9 +43,7 @@ const char *executableName = "brewd";
 NSString* formattedTimeStamp()
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setLocale:[NSLocale localeWithLocaleIdentifier:@"en_US"]];
-    [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
-    [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     NSString *timeStamp = [dateFormatter stringFromDate:[NSDate date]];
     return timeStamp;
 }
