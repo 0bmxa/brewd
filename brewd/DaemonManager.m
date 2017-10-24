@@ -7,7 +7,6 @@
 //
 
 #import "DaemonManager.h"
-#import "LogFile.h"
 #import "unistd.h"
 #import "sys/stat.h"
 #import "brewd-Swift.h"

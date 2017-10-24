@@ -9,108 +9,39 @@
 import Foundation
 
 enum BrewCommand: String {
-    case List     = "list"
-    case Outdated = "outdated"
+    case list
+    case outdated
 
-    case Update   = "update"
-}
-
-
-enum BrewError: ErrorType {
-    case Error
+    case update
 }
 
 
 @objc class BrewManager: NSObject {
-    
+    let logFile: LogFile
+    let notificationManager: NotificationManager
+
+    override init() {
+        let logFile = LogFile(path: "~/brewd.log", executableName: "brewd")
+        self.logFile = logFile
+        self.notificationManager = NotificationManager(logFile: logFile)
+    }
+
     func update() {
-        LogFile.log("Starting update...")
+        self.logFile.log("Starting update...")
 
         let brew = Brew()
 
-        LogFile.log("Updating...")
+        self.logFile.log("Updating...")
         let updateSuccess = brew.update()
-        LogFile.log("Update finished.")
+        self.logFile.log("Update finished.")
+
         if !updateSuccess {
-            Notification.show("Update failed.")
+            self.notificationManager.show(message: "Update failed.")
         }
 
-        guard let outdatedPackagesCount = brew.outdatedPackages()?.count
-            else {
-                Notification.show("Could not get outdated packages.");
-                return
-            }
-        if (outdatedPackagesCount > 0) {
-            Notification.show("There are \(outdatedPackagesCount) outdated packages.")
+        let outdatedPackages = brew.outdatedPackages()
+        if !outdatedPackages.isEmpty {
+            self.notificationManager.show(message: "There are \(outdatedPackages.count) outdated packages.")
         }
     }
-        
 }
-
-
-
-class Brew {
-    
-    let brewPath = "/usr/local/bin/brew"
-    
-    
-    /**
-     Calls `brew update`.
-     
-     - returns: Whether the update was successful or not.
-     */
-    func update() -> Bool {
-        let update = brew(.Update)
-        return update.success
-    }
-    
-    
-    /**
-     Calls `brew list`.
-     
-     - returns: The list of installed packages, or nil if the call failed.
-     */
-    func installedPackages() -> [String]?
-    {
-        let list = brew(.List)
-        guard let packages = list.content
-            else { return nil }
-        
-        let installedPackages: [String] = packages.componentsSeparatedByString("\n").filter({$0 != ""})
-        return installedPackages
-    }
-    
-    
-    /**
-     Calls `brew outdated`.
-     
-     - returns: The list of outdated packages, or nil if the call failed.
-     */
-    func outdatedPackages() -> [String]? {
-        let outdated = brew(.Outdated)
-        guard let packages = outdated.content
-            else { return nil }
-
-        let outdatedPackages = packages.componentsSeparatedByString("\n").filter({$0 != ""})
-        return outdatedPackages
-    }
-
-
-    
-    // MARK: - Execute brew commands
-    
-    func brew(command: BrewCommand) -> (success: Bool, content: String?) {
-        let result = Shell.executeSynchronous(brewPath, command.rawValue)
-        
-        var success = true
-        if let stderr = result.stderr {
-            if(!stderr.isEmpty) {
-                success = false
-            }
-        }
-        
-        return (success, result.stdout)
-    }
-
-}
-

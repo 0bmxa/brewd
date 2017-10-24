@@ -9,12 +9,11 @@
 /* Begin PBXBuildFile section */
 		EE0329DE1C5A137A00062541 /* DaemonManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EE0329DD1C5A137A00062541 /* DaemonManager.m */; };
 		EE4884291C7B72540004F275 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4884281C7B72540004F275 /* main.swift */; };
-		EE48842B1C7B76740004F275 /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE48842A1C7B76740004F275 /* AppManager.swift */; };
 		EE48842E1C7B818E0004F275 /* BeerImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE48842D1C7B818E0004F275 /* BeerImage.swift */; };
+		EE7F75211F9F8F75009EC3B8 /* Brew.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7F75201F9F8F75009EC3B8 /* Brew.swift */; };
 		EE996DDE1C3F153F006A4764 /* BrewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE996DDD1C3F153F006A4764 /* BrewManager.swift */; };
 		EEFEBCF51C7AA98F000288BD /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFEBCF41C7AA98F000288BD /* NotificationManager.swift */; };
 		EEFEBCF71C7B22EF000288BD /* Shell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFEBCF61C7B22EF000288BD /* Shell.swift */; };
-		EEFEBCFC1C7B2BC2000288BD /* LogFile.m in Sources */ = {isa = PBXBuildFile; fileRef = EEFEBCFB1C7B2BC2000288BD /* LogFile.m */; };
 		EEFEBCFE1C7B378A000288BD /* LogFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFEBCFD1C7B378A000288BD /* LogFile.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,15 +33,13 @@
 		EE0329DC1C5A137A00062541 /* DaemonManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DaemonManager.h; sourceTree = "<group>"; };
 		EE0329DD1C5A137A00062541 /* DaemonManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DaemonManager.m; sourceTree = "<group>"; };
 		EE4884281C7B72540004F275 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = main.swift; path = "Supporting Files/main.swift"; sourceTree = "<group>"; };
-		EE48842A1C7B76740004F275 /* AppManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
 		EE48842D1C7B818E0004F275 /* BeerImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BeerImage.swift; path = Notifications/BeerImage.swift; sourceTree = "<group>"; };
 		EE48842F1C7BC6EF0004F275 /* brewd-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "brewd-Bridging-Header.h"; path = "Supporting Files/brewd-Bridging-Header.h"; sourceTree = "<group>"; };
+		EE7F75201F9F8F75009EC3B8 /* Brew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brew.swift; sourceTree = "<group>"; };
 		EE996DD31C3F13B5006A4764 /* brewd */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = brewd; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE996DDD1C3F153F006A4764 /* BrewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrewManager.swift; sourceTree = "<group>"; };
 		EEFEBCF41C7AA98F000288BD /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationManager.swift; path = Notifications/NotificationManager.swift; sourceTree = "<group>"; };
 		EEFEBCF61C7B22EF000288BD /* Shell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shell.swift; sourceTree = "<group>"; };
-		EEFEBCFA1C7B2BC2000288BD /* LogFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LogFile.h; path = Logging/LogFile.h; sourceTree = "<group>"; };
-		EEFEBCFB1C7B2BC2000288BD /* LogFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LogFile.m; path = Logging/LogFile.m; sourceTree = "<group>"; };
 		EEFEBCFD1C7B378A000288BD /* LogFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LogFile.swift; path = Logging/LogFile.swift; sourceTree = "<group>"; };
 		EEFEBD001C7B4114000288BD /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,10 +93,10 @@
 		EE996DD51C3F13B5006A4764 /* brewd */ = {
 			isa = PBXGroup;
 			children = (
-				EE48842A1C7B76740004F275 /* AppManager.swift */,
 				EE0329DC1C5A137A00062541 /* DaemonManager.h */,
 				EE0329DD1C5A137A00062541 /* DaemonManager.m */,
 				EE996DDD1C3F153F006A4764 /* BrewManager.swift */,
+				EE7F75201F9F8F75009EC3B8 /* Brew.swift */,
 				EEFEBCF61C7B22EF000288BD /* Shell.swift */,
 				EE48842C1C7B81760004F275 /* Notifications */,
 				EEFEBCFF1C7B38CC000288BD /* Logging */,
@@ -111,8 +108,6 @@
 		EEFEBCFF1C7B38CC000288BD /* Logging */ = {
 			isa = PBXGroup;
 			children = (
-				EEFEBCFA1C7B2BC2000288BD /* LogFile.h */,
-				EEFEBCFB1C7B2BC2000288BD /* LogFile.m */,
 				EEFEBCFD1C7B378A000288BD /* LogFile.swift */,
 			);
 			name = Logging;
@@ -125,6 +120,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EE996DDA1C3F13B6006A4764 /* Build configuration list for PBXNativeTarget "brewd" */;
 			buildPhases = (
+				EE7F751F1F9F8EB1009EC3B8 /* swiftlint */,
 				EE996DCF1C3F13B5006A4764 /* Sources */,
 				EE996DD01C3F13B5006A4764 /* Frameworks */,
 				EE996DD11C3F13B5006A4764 /* CopyFiles */,
@@ -145,7 +141,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = mxa;
 				TargetAttributes = {
 					EE996DD21C3F13B5006A4764 = {
@@ -170,17 +166,33 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		EE7F751F1F9F8EB1009EC3B8 /* swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = swiftlint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = swiftlint;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		EE996DCF1C3F13B5006A4764 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE48842B1C7B76740004F275 /* AppManager.swift in Sources */,
 				EEFEBCFE1C7B378A000288BD /* LogFile.swift in Sources */,
 				EE4884291C7B72540004F275 /* main.swift in Sources */,
 				EE0329DE1C5A137A00062541 /* DaemonManager.m in Sources */,
 				EEFEBCF71C7B22EF000288BD /* Shell.swift in Sources */,
-				EEFEBCFC1C7B2BC2000288BD /* LogFile.m in Sources */,
+				EE7F75211F9F8F75009EC3B8 /* Brew.swift in Sources */,
 				EE48842E1C7B818E0004F275 /* BeerImage.swift in Sources */,
 				EEFEBCF51C7AA98F000288BD /* NotificationManager.swift in Sources */,
 				EE996DDE1C3F153F006A4764 /* BrewManager.swift in Sources */,
@@ -198,13 +210,21 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
@@ -242,13 +262,21 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
@@ -267,6 +295,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 			};
 			name = Release;
 		};
@@ -281,6 +310,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "brewd/Supporting Files/brewd-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -294,6 +324,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = zerob.mxa.brewd;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "brewd/Supporting Files/brewd-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

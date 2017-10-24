@@ -8,26 +8,17 @@
 
 import Cocoa
 
-// MARK: - User notifications
-
-class Notification {
-    class func show(message: String)
-    {
-        NotificationManager.sharedManager.show(message)
-    }
-}
-
 class NotificationManager: NSObject {
+    let notificationCenter: NSUserNotificationCenter
+    let logFile: LogFile
 
-    static let sharedManager = NotificationManager()
-    
-    let notificationCenter = NSUserNotificationCenter.defaultUserNotificationCenter()
-
-    override init() {
+    init(logFile: LogFile) {
+        self.logFile = logFile
+        self.notificationCenter = NSUserNotificationCenter.default
         super.init()
         self.notificationCenter.delegate = self
     }
-    
+
     func show(message: String) {
         let notification = NSUserNotification()
         notification.title = "HomeBrew"
@@ -35,29 +26,27 @@ class NotificationManager: NSObject {
         notification.hasActionButton = true
         notification.actionButtonTitle = "Oh noes!"
         notification.otherButtonTitle = "Close"
-        
+
         // Caution: Private API
-        notification.setValue(BeerImage(size: NSMakeSize(30, 30)), forKey: "_identityImage")
+        let beer = BeerImage(size: NSSize(width: 30, height: 30))
+        notification.setValue(beer, forKey: "_identityImage")
         notification.setValue(false, forKey: "_identityImageHasBorder")
 
-        self.notificationCenter.deliverNotification(notification)
-        LogFile.log("Displaying notification \"\(message)\".")
+        self.notificationCenter.deliver(notification)
+        self.logFile.log("Displaying notification: ", message)
     }
-    
 }
 
 extension NotificationManager: NSUserNotificationCenterDelegate {
-    
-    func userNotificationCenter(center: NSUserNotificationCenter, shouldPresentNotification notification: NSUserNotification) -> Bool {
+    func userNotificationCenter(_ center: NSUserNotificationCenter, shouldPresent notification: NSUserNotification) -> Bool {
         return true
     }
-    
-    func userNotificationCenter(center: NSUserNotificationCenter, didDeliverNotification notification: NSUserNotification) {
-        LogFile.log("Notification \"\(notification.title)\" delivered.")
+
+    func userNotificationCenter(_ center: NSUserNotificationCenter, didDeliver notification: NSUserNotification) {
+        self.logFile.log("Notification", notification.title ?? "[no title]", "delivered.")
     }
-    
-    func userNotificationCenter(center: NSUserNotificationCenter, didActivateNotification notification: NSUserNotification) {
-        LogFile.log("Notification \"\(notification.title)\" activated.")
+
+    func userNotificationCenter(_ center: NSUserNotificationCenter, didActivate notification: NSUserNotification) {
+        self.logFile.log("Notification", notification.title ?? "[no title]", "activated.")
     }
-    
 }

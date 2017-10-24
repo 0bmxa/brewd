@@ -8,42 +8,40 @@
 
 import Cocoa
 
-// MARK: - Simple shell wrapper
-class Shell {
+/// Simple "shell" command runner. TODO: Rename, cause there's no shell.
+struct Shell {
 
-    /**
-     Executes a shell command synchronously.
-     
-     - parameter args: The arguments of the command to be executed, including the command itself.
-     
-     - returns: The returned stdout and stderr strings, if applicable.
-     */
-    class func executeSynchronous(args: String...) -> (stdout: String?, stderr: String?) {
-        // Setup task
-        let task = NSTask.init()
-        task.launchPath = "/usr/bin/env"
-        task.arguments = args
-        
-        // Setup stdout
-        let stdout = NSPipe()
-        task.standardOutput = stdout
-        
-        // Setup stdout
-        let stderr = NSPipe()
-        task.standardError = stderr
-        
-        // Execute task
-        task.launch()
-        task.waitUntilExit()
-        
-        // Obtain stdout data string
-        let stdoutData   = stdout.fileHandleForReading.readDataToEndOfFile()
-        let stderrData   = stderr.fileHandleForReading.readDataToEndOfFile()
-        let stdoutString = String(data: stdoutData, encoding: NSUTF8StringEncoding)
-        let stderrString = String(data: stderrData, encoding: NSUTF8StringEncoding)
-        
-        return (stdoutString, stderrString)
+    struct ProcessResult {
+        let stdout: String?
+        let stderr: String?
     }
 
-    
+    /// Executes a shell command synchronously (blocking).
+    ///
+    /// - Parameter args: The arguments of the command to be executed, including the command itself.
+    /// - Returns: The returned stdout and stderr strings, if applicable.
+    static func executeSynchronous(_ args: String...) -> ProcessResult {
+        // Setup process
+        let process = Process()
+        process.launchPath = "/usr/bin/env"
+        process.arguments = args
+
+        // Setup stdout & stderr pipes
+        let stdoutPipe = Pipe()
+        let stderrPipe = Pipe()
+        process.standardOutput = stdoutPipe
+        process.standardError  = stderrPipe
+
+        // Run process & wait
+        process.launch()
+        process.waitUntilExit()
+
+        // Obtain output
+        let stdoutData = stdoutPipe.fileHandleForReading.readDataToEndOfFile()
+        let stderrData = stderrPipe.fileHandleForReading.readDataToEndOfFile()
+        let stdout = String(data: stdoutData, encoding: .utf8)
+        let stderr = String(data: stderrData, encoding: .utf8)
+
+        return ProcessResult(stdout: stdout, stderr: stderr)
+    }
 }

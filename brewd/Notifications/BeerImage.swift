@@ -9,28 +9,22 @@
 import Cocoa
 
 class BeerImage: NSImage {
-    
     override init(size: NSSize) {
         super.init(size: size)
-        
+
         let 🍺 = "🍻" as NSString
-        
+
         self.lockFocus()
-        let fontAttributes = [NSFontAttributeName: NSFont.systemFontOfSize(size.height)]
-        🍺.drawInRect(NSMakeRect(0, 0, size.width, size.height), withAttributes: fontAttributes)
+        let fontAttributes = [NSFontAttributeName: NSFont.systemFont(ofSize: size.height)]
+        🍺.draw(in: NSRect(origin: CGPoint.zero, size: size), withAttributes: fontAttributes)
         self.unlockFocus()
     }
-    
-    
-    // MARK: Required shit
-    
-    required init(imageLiteral name: String) {
-        super.init()
+
+
+    required init?(pasteboardPropertyList propertyList: Any, ofType type: String) {
+        fatalError("init(pasteboardPropertyList:ofType:) has not been implemented")
     }
-    required init?(pasteboardPropertyList propertyList: AnyObject, ofType type: String) {
-        super.init()
-    }
-    required init?(coder aDecoder: NSCoder) {
-        super.init()
+    required init(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }

@@ -7,4 +7,5 @@
 //
 
 // Start the app
-_ = AppManager()
+let daemon = DaemonManager()
+daemon.startDaemon()
