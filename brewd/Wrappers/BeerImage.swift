@@ -15,13 +15,13 @@ class BeerImage: NSImage {
         let 🍺 = "🍻" as NSString
 
         self.lockFocus()
-        let fontAttributes = [NSFontAttributeName: NSFont.systemFont(ofSize: size.height)]
+        let fontAttributes = [NSAttributedStringKey.font: NSFont.systemFont(ofSize: size.height)]
         🍺.draw(in: NSRect(origin: CGPoint.zero, size: size), withAttributes: fontAttributes)
         self.unlockFocus()
     }
 
 
-    required init?(pasteboardPropertyList propertyList: Any, ofType type: String) {
+    required init?(pasteboardPropertyList propertyList: Any, ofType type: NSPasteboard.PasteboardType) {
         fatalError("init(pasteboardPropertyList:ofType:) has not been implemented")
     }
     required init(coder: NSCoder) {

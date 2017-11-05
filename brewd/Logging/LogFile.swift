@@ -37,8 +37,8 @@ class LogFile {
                 return
             #endif
             fallthrough
-        case .info:  message = messages.reduce("") { $0.0 + "\($0.1) " }
-        case .error: message = messages.reduce("ERROR:") { $0.0 + "\($0.1) " }
+        case .info:  message = messages.reduce("")       { $0 + "\($1) " }
+        case .error: message = messages.reduce("ERROR:") { $0 + "\($1) " }
         }
 
 
