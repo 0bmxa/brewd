@@ -11,6 +11,7 @@
 		EE4884291C7B72540004F275 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4884281C7B72540004F275 /* main.swift */; };
 		EE48842E1C7B818E0004F275 /* BeerImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE48842D1C7B818E0004F275 /* BeerImage.swift */; };
 		EE6543141FAF7D4F00817D70 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6543131FAF7D4F00817D70 /* Date.swift */; };
+		EE6543171FAF8FA700817D70 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6543161FAF8FA700817D70 /* Config.swift */; };
 		EE7F75211F9F8F75009EC3B8 /* Brew.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7F75201F9F8F75009EC3B8 /* Brew.swift */; };
 		EE7F75231FA36320009EC3B8 /* Daemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7F75221FA36320009EC3B8 /* Daemon.swift */; };
 		EE996DDE1C3F153F006A4764 /* BrewRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE996DDD1C3F153F006A4764 /* BrewRunner.swift */; };
@@ -36,15 +37,16 @@
 		EE0329DC1C5A137A00062541 /* Forker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Forker.h; sourceTree = "<group>"; };
 		EE0329DD1C5A137A00062541 /* Forker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Forker.m; sourceTree = "<group>"; };
 		EE4884281C7B72540004F275 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		EE48842D1C7B818E0004F275 /* BeerImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BeerImage.swift; path = Notifications/BeerImage.swift; sourceTree = "<group>"; };
+		EE48842D1C7B818E0004F275 /* BeerImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeerImage.swift; sourceTree = "<group>"; };
 		EE48842F1C7BC6EF0004F275 /* brewd-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "brewd-Bridging-Header.h"; path = "Supporting Files/brewd-Bridging-Header.h"; sourceTree = "<group>"; };
 		EE6543131FAF7D4F00817D70 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		EE6543161FAF8FA700817D70 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		EE7F75201F9F8F75009EC3B8 /* Brew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brew.swift; sourceTree = "<group>"; };
 		EE7F75221FA36320009EC3B8 /* Daemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Daemon.swift; sourceTree = "<group>"; };
 		EE996DD31C3F13B5006A4764 /* brewd */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = brewd; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE996DDD1C3F153F006A4764 /* BrewRunner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrewRunner.swift; sourceTree = "<group>"; };
 		EEDE256E1FA907B000C80E11 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
-		EEFEBCF41C7AA98F000288BD /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationManager.swift; path = Notifications/NotificationManager.swift; sourceTree = "<group>"; };
+		EEFEBCF41C7AA98F000288BD /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		EEFEBCF61C7B22EF000288BD /* Command.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
 		EEFEBCFD1C7B378A000288BD /* LogFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LogFile.swift; path = Logging/LogFile.swift; sourceTree = "<group>"; };
 		EEFEBD001C7B4114000288BD /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -71,15 +73,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		EE48842C1C7B81760004F275 /* Notifications */ = {
-			isa = PBXGroup;
-			children = (
-				EEFEBCF41C7AA98F000288BD /* NotificationManager.swift */,
-				EE48842D1C7B818E0004F275 /* BeerImage.swift */,
-			);
-			name = Notifications;
-			sourceTree = "<group>";
-		};
 		EE6543101FAF7D2B00817D70 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +85,8 @@
 			isa = PBXGroup;
 			children = (
 				EEFEBCF61C7B22EF000288BD /* Command.swift */,
+				EEFEBCF41C7AA98F000288BD /* NotificationManager.swift */,
+				EE48842D1C7B818E0004F275 /* BeerImage.swift */,
 			);
 			path = Wrappers;
 			sourceTree = "<group>";
@@ -116,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				EEDE256E1FA907B000C80E11 /* App.swift */,
+				EE6543161FAF8FA700817D70 /* Config.swift */,
 				EE0329DC1C5A137A00062541 /* Forker.h */,
 				EE0329DD1C5A137A00062541 /* Forker.m */,
 				EE7F75221FA36320009EC3B8 /* Daemon.swift */,
@@ -123,7 +119,6 @@
 				EE7F75201F9F8F75009EC3B8 /* Brew.swift */,
 				EE6543151FAF7F8A00817D70 /* Wrappers */,
 				EE6543101FAF7D2B00817D70 /* Extensions */,
-				EE48842C1C7B81760004F275 /* Notifications */,
 				EEFEBCFF1C7B38CC000288BD /* Logging */,
 				EE0329DF1C5A15C800062541 /* Supporting Files */,
 			);
@@ -220,6 +215,7 @@
 				EE0329DE1C5A137A00062541 /* Forker.m in Sources */,
 				EEDE256F1FA907B000C80E11 /* App.swift in Sources */,
 				EEFEBCF71C7B22EF000288BD /* Command.swift in Sources */,
+				EE6543171FAF8FA700817D70 /* Config.swift in Sources */,
 				EE7F75231FA36320009EC3B8 /* Daemon.swift in Sources */,
 				EE7F75211F9F8F75009EC3B8 /* Brew.swift in Sources */,
 				EE6543141FAF7D4F00817D70 /* Date.swift in Sources */,

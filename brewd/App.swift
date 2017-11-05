@@ -11,21 +11,25 @@ import Foundation
 internal struct App {
     private init() {}
     
-    static func run() {
+    static func run(config: Config = Config.default) {
+        let runInterval: UInt32
         #if DEBUG
-            let runInterval: UInt32 =   10 // seconds
+            runInterval =   10 // seconds
         #else
-            let runInterval: UInt32 = 3600 // seconds
+            runInterval = config.updateInterval // seconds
         #endif
         
-        // Stuff
-        let logFile = LogFile(path: "~/brewd.log", executableName: "brewd")
+        // Setup
+        var logFile: LogFile?
+        if let logFilePath = config.logFilePath {
+            logFile = LogFile(path: logFilePath, executableName: "brewd")
+        }
         let notificationManager = NotificationManager(logFile: logFile)
+        let brewRunner = BrewRunner(logFile: logFile, notificationManager: notificationManager, brewExecutablePath: config.brewExecutablePath)
         
-        // Update task
-        let brewRunner = BrewRunner(logFile: logFile, notificationManager: notificationManager)
+        // Create update task
         let daemonTask: Closure = {
-            brewRunner.update()
+            brewRunner.updateAndNotify()
         }
         
         // Run as daemon

@@ -9,12 +9,11 @@
 import Foundation
 
 class NotificationManager: NSObject {
-    let notificationCenter: NSUserNotificationCenter
-    let logFile: LogFile
+    let notificationCenter = NSUserNotificationCenter.default
+    let logFile: LogFile?
 
-    init(logFile: LogFile) {
+    init(logFile: LogFile?) {
         self.logFile = logFile
-        self.notificationCenter = NSUserNotificationCenter.default
         super.init()
         self.notificationCenter.delegate = self
     }
@@ -33,7 +32,7 @@ class NotificationManager: NSObject {
         notification.setValue(false, forKey: "_identityImageHasBorder")
 
         self.notificationCenter.deliver(notification)
-        self.logFile.log("Displaying notification: ", message)
+        self.logFile?.log("Displaying notification: ", message)
     }
 }
 
@@ -45,10 +44,10 @@ extension NotificationManager: NSUserNotificationCenterDelegate {
     }
 
     func userNotificationCenter(_ center: NSUserNotificationCenter, didDeliver notification: NSUserNotification) {
-        self.logFile.log("Notification delivered:", notification.informativeText ?? "[no message]")
+        self.logFile?.log("Notification delivered:", notification.informativeText ?? "[no message]")
     }
 
     func userNotificationCenter(_ center: NSUserNotificationCenter, didActivate notification: NSUserNotification) {
-        self.logFile.log("Notification activated:", notification.informativeText ?? "[no message]")
+        self.logFile?.log("Notification activated:", notification.informativeText ?? "[no message]")
     }
 }

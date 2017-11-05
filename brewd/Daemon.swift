@@ -14,10 +14,10 @@ typealias Closure = () -> Void
 struct Daemon {
     private let runInterval: UInt32
     private let task: Closure
-    private let logFile: LogFile
+    private let logFile: LogFile?
     private var daemonShouldStop = false
 
-    init(runInterval: UInt32, task: @escaping Closure, logFile: LogFile) {
+    init(runInterval: UInt32, task: @escaping Closure, logFile: LogFile?) {
         self.runInterval = runInterval
         self.task = task
         self.logFile = logFile
@@ -39,7 +39,7 @@ struct Daemon {
         }
         
         // Exit
-        self.logFile.log("Daemon stopped.")
+        self.logFile?.log("Daemon stopped.")
         exit(EXIT_SUCCESS)
     }
     
@@ -57,20 +57,20 @@ struct Daemon {
         
         // -1: Forking failed (and we are the parent, obviously)
         if processID < 0 {
-            self.logFile.log("Could not fork off parent.", level: .error)
+            self.logFile?.log("Could not fork off parent.", level: .error)
             assertionFailure()
             exit(EXIT_FAILURE)
         }
         
         // >0: We are the parent process, and forking succeeded
         if processID > 0 {
-            self.logFile.log("Starting daemon.")
+            self.logFile?.log("Starting daemon.")
             exit(EXIT_SUCCESS)
         }
         
         // ELSE:
         // 0: We are the child process, and forking succeeded
-        self.logFile.log("Daemon running.")
+        self.logFile?.log("Daemon running.")
         
         
         // Create a new session, so the child is not killed with the parent
@@ -78,11 +78,11 @@ struct Daemon {
             let sessionID = setsid()
             
             guard sessionID >= 0 else {
-                self.logFile.log("Session creation failed.", level: .error)
+                self.logFile?.log("Session creation failed.", level: .error)
                 assertionFailure()
                 exit(EXIT_FAILURE)
             }
-            self.logFile.log("Session created. ID:", sessionID)
+            self.logFile?.log("Session created. ID:", sessionID)
         }
         
         
@@ -92,11 +92,11 @@ struct Daemon {
         // Change working dir
         let path = "/".withCString { $0 }
         guard chdir(path) == 0 else {
-            self.logFile.log("chdir to '\(String(cString: path))' failed", level: .error)
+            self.logFile?.log("chdir to '\(String(cString: path))' failed", level: .error)
             assertionFailure()
             exit(EXIT_FAILURE)
         }
-        self.logFile.log("Changed working dir to:", String(cString: path))
+        self.logFile?.log("Changed working dir to:", String(cString: path))
         
         
         // Close standard file descriptors
