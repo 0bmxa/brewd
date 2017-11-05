@@ -6,10 +6,10 @@
 //  Copyright © 2016 mxa. All rights reserved.
 //
 
-#import "DaemonManager.h"
+#import "Forker.h"
 #import "unistd.h"
 
-@implementation DaemonManager
+@implementation Forker
 
 +(pid_t)fork
 {

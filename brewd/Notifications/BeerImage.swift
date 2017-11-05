@@ -6,7 +6,7 @@
 //  Copyright © 2016 mxa. All rights reserved.
 //
 
-import Cocoa
+import AppKit
 
 class BeerImage: NSImage {
     override init(size: NSSize) {

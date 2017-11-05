@@ -6,21 +6,21 @@
 //  Copyright © 2016 mxa. All rights reserved.
 //
 
-import Cocoa
+import Foundation
 
-/// Simple "shell" command runner. TODO: Rename, cause there's no shell.
-struct Shell {
+/// Simple command runner.
+struct Command {
 
-    struct ProcessResult {
+    struct CommandResult {
         let stdout: String?
         let stderr: String?
     }
 
-    /// Executes a shell command synchronously (blocking).
+    /// Executes a "shell" command synchronously (blocking).
     ///
     /// - Parameter args: The arguments of the command to be executed, including the command itself.
     /// - Returns: The returned stdout and stderr strings, if applicable.
-    static func executeSynchronous(_ args: String...) -> ProcessResult {
+    static func runSynchronously(_ args: String...) -> CommandResult {
         // Setup process
         let process = Process()
         process.launchPath = "/usr/bin/env"
@@ -42,6 +42,6 @@ struct Shell {
         let stdout = String(data: stdoutData, encoding: .utf8)
         let stderr = String(data: stderrData, encoding: .utf8)
 
-        return ProcessResult(stdout: stdout, stderr: stderr)
+        return CommandResult(stdout: stdout, stderr: stderr)
     }
 }

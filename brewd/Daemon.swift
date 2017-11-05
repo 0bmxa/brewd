@@ -12,22 +12,23 @@ import Darwin.C.errno
 typealias Closure = () -> Void
 
 struct Daemon {
-
     private let runInterval: UInt32
     private let task: Closure
     private let logFile: LogFile
-    
+    private var daemonShouldStop = false
+
     init(runInterval: UInt32, task: @escaping Closure, logFile: LogFile) {
         self.runInterval = runInterval
         self.task = task
         self.logFile = logFile
     }
-    
-    private var daemonShouldStop = false
 
     func start() {
-//        self.setup(fork: true)
-        self.setup(fork: false)
+        #if DEBUG
+            self.setup(fork: false)
+        #else
+            self.setup(fork: true)
+        #endif
 
         // Run loop
         while true {
@@ -48,7 +49,7 @@ struct Daemon {
     
     private func setup(fork doFork: Bool) {
         // TODO: Use posixSpawn() instead ?
-        let processID = doFork ? DaemonManager.fork() : 0
+        let processID = doFork ? Forker.fork() : 0
 
         // Note:
         // Both (parent & child) processes continue running from here,

@@ -1,5 +1,5 @@
 //
-//  DaemonManager.h
+//  ForkForwarder.h
 //  brewd
 //
 //  Created by Maximilian Heim on 28.01.16.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface DaemonManager : NSObject
+@interface Forker : NSObject
 
 +(pid_t)fork;
 

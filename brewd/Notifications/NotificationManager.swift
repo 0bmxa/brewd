@@ -6,7 +6,7 @@
 //  Copyright © 2016 mxa. All rights reserved.
 //
 
-import Cocoa
+import Foundation
 
 class NotificationManager: NSObject {
     let notificationCenter: NSUserNotificationCenter
@@ -37,6 +37,8 @@ class NotificationManager: NSObject {
     }
 }
 
+
+// MARK: - NSUserNotificationCenterDelegate
 extension NotificationManager: NSUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: NSUserNotificationCenter, shouldPresent notification: NSUserNotification) -> Bool {
         return true

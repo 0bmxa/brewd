@@ -16,30 +16,35 @@ enum BrewCommand: String {
 }
 
 
-class BrewManager {
+class BrewRunner {
     let logFile: LogFile
     let notificationManager: NotificationManager
 
-    init(logFile: LogFile) {
+    init(logFile: LogFile, notificationManager: NotificationManager) {
         self.logFile = logFile
-        self.notificationManager = NotificationManager(logFile: logFile)
+        self.notificationManager = notificationManager
     }
 
     func update() {
-        self.logFile.log("Starting update...")
-
+        self.logFile.log("Starting update...", level: .debug)
         let brew = Brew()
 
-        self.logFile.log("Updating...")
+        // Run update
+        self.logFile.log("Updating...", level: .debug)
         let updateSuccess = brew.update()
-        self.logFile.log("Update finished.")
 
+        // Log success/failure
         if !updateSuccess {
+            self.logFile.log("Update failed.", level: .info)
             self.notificationManager.show(message: "Update failed.")
+        } else {
+            self.logFile.log("Update succeeded.", level: .info)
         }
 
+        // Outdated packages
         let outdatedPackages = brew.outdatedPackages()
         if !outdatedPackages.isEmpty {
+            self.logFile.log(outdatedPackages.count, "outdated packages.", level: .info)
             self.notificationManager.show(message: "There are \(outdatedPackages.count) outdated packages.")
         }
     }

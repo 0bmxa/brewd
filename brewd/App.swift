@@ -13,17 +13,22 @@ internal struct App {
     
     static func run() {
         #if DEBUG
-            let runInterval: UInt32 = 10
+            let runInterval: UInt32 =   10 // seconds
         #else
-            let runInterval: UInt32 = 3600
+            let runInterval: UInt32 = 3600 // seconds
         #endif
         
+        // Stuff
         let logFile = LogFile(path: "~/brewd.log", executableName: "brewd")
+        let notificationManager = NotificationManager(logFile: logFile)
         
-        let brew = BrewManager(logFile: logFile)
+        // Update task
+        let brewRunner = BrewRunner(logFile: logFile, notificationManager: notificationManager)
         let daemonTask: Closure = {
-            brew.update()
+            brewRunner.update()
         }
+        
+        // Run as daemon
         let deamon = Daemon(runInterval: runInterval, task: daemonTask, logFile: logFile)
         deamon.start()
     }
