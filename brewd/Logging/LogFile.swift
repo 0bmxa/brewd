@@ -6,26 +6,44 @@
 //  Copyright © 2016 mxa. All rights reserved.
 //
 
-@objc class LogFile: NSObject {
+
+class LogFile {
     private let executableName: String
 
-    let file: File
+    private let file: File
+    
+    enum Level {
+        case debug
+        case info
+        case error
+    }
 
     init(path: String, executableName: String) {
         self.executableName = executableName
         self.file = File(path: path, mode: .appendOrCreate)!
     }
 
-    func log(format: String, _ arguments: CVarArg...) {
+    func log(format: String, _ arguments: CVarArg..., level: Level = .info) {
         let message = String(format: format, arguments: arguments)
-        self.log(message)
+        self.log(message, level: level)
     }
 
-    func log(_ messages: String...) {
-        let message = messages.reduce("") { $0.0 + " " + $0.1 }
+    func log(_ messages: Any..., level: Level = .info) {
+        let message: String
+        switch level {
+        case .debug: message = messages.reduce("")       { $0.0 + " " + String(reflecting: $0.1) }
+        case .info:  message = messages.reduce("")       { $0.0 + " " + String(describing: $0.1) }
+        case .error: message = messages.reduce("ERROR:") { $0.0 + " " + String(describing: $0.1) }
+        }
+
         let timeStamp = Date().formattedTimeStamp()
         let processID = getpid()
-        let logString = String(format: "%@ <%s>[%d] %@\n", timeStamp, self.executableName, processID, message)
+        let logString = String(format: "%@ <%@>[%d] %@\n", timeStamp, self.executableName, processID, message)
+
+        // Print to console
+        print(logString, terminator: "")
+        
+        // Write to file
         self.file.write(logString)
     }
 }
@@ -70,6 +88,7 @@ extension Date {
     func formattedTimeStamp(format: String = "yyyy-MM-dd HH:mm:ss") -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = format
-        return dateFormatter.string(from: self)
+        let string = dateFormatter.string(from: self)
+        return string
     }
 }

@@ -51,7 +51,7 @@ private extension Brew {
     func brew(_ command: BrewCommand) throws -> String? {
         let result = Shell.executeSynchronous(self.brewPath, command.rawValue)
 
-        if let stderr = result.stderr {
+        if let stderr = result.stderr, !stderr.isEmpty {
             throw BrewError(message: stderr)
         }
         return result.stdout

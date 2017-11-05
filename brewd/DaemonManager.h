@@ -10,7 +10,6 @@
 
 @interface DaemonManager : NSObject
 
-+(instancetype)sharedManager;
--(void)startDaemon;
++(pid_t)fork;
 
 @end

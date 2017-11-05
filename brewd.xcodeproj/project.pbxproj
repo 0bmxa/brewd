@@ -11,7 +11,9 @@
 		EE4884291C7B72540004F275 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4884281C7B72540004F275 /* main.swift */; };
 		EE48842E1C7B818E0004F275 /* BeerImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE48842D1C7B818E0004F275 /* BeerImage.swift */; };
 		EE7F75211F9F8F75009EC3B8 /* Brew.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7F75201F9F8F75009EC3B8 /* Brew.swift */; };
+		EE7F75231FA36320009EC3B8 /* Daemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7F75221FA36320009EC3B8 /* Daemon.swift */; };
 		EE996DDE1C3F153F006A4764 /* BrewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE996DDD1C3F153F006A4764 /* BrewManager.swift */; };
+		EEDE256F1FA907B000C80E11 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDE256E1FA907B000C80E11 /* App.swift */; };
 		EEFEBCF51C7AA98F000288BD /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFEBCF41C7AA98F000288BD /* NotificationManager.swift */; };
 		EEFEBCF71C7B22EF000288BD /* Shell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFEBCF61C7B22EF000288BD /* Shell.swift */; };
 		EEFEBCFE1C7B378A000288BD /* LogFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFEBCFD1C7B378A000288BD /* LogFile.swift */; };
@@ -36,8 +38,10 @@
 		EE48842D1C7B818E0004F275 /* BeerImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BeerImage.swift; path = Notifications/BeerImage.swift; sourceTree = "<group>"; };
 		EE48842F1C7BC6EF0004F275 /* brewd-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "brewd-Bridging-Header.h"; path = "Supporting Files/brewd-Bridging-Header.h"; sourceTree = "<group>"; };
 		EE7F75201F9F8F75009EC3B8 /* Brew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brew.swift; sourceTree = "<group>"; };
+		EE7F75221FA36320009EC3B8 /* Daemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Daemon.swift; sourceTree = "<group>"; };
 		EE996DD31C3F13B5006A4764 /* brewd */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = brewd; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE996DDD1C3F153F006A4764 /* BrewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrewManager.swift; sourceTree = "<group>"; };
+		EEDE256E1FA907B000C80E11 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		EEFEBCF41C7AA98F000288BD /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationManager.swift; path = Notifications/NotificationManager.swift; sourceTree = "<group>"; };
 		EEFEBCF61C7B22EF000288BD /* Shell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shell.swift; sourceTree = "<group>"; };
 		EEFEBCFD1C7B378A000288BD /* LogFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LogFile.swift; path = Logging/LogFile.swift; sourceTree = "<group>"; };
@@ -93,8 +97,10 @@
 		EE996DD51C3F13B5006A4764 /* brewd */ = {
 			isa = PBXGroup;
 			children = (
+				EEDE256E1FA907B000C80E11 /* App.swift */,
 				EE0329DC1C5A137A00062541 /* DaemonManager.h */,
 				EE0329DD1C5A137A00062541 /* DaemonManager.m */,
+				EE7F75221FA36320009EC3B8 /* Daemon.swift */,
 				EE996DDD1C3F153F006A4764 /* BrewManager.swift */,
 				EE7F75201F9F8F75009EC3B8 /* Brew.swift */,
 				EEFEBCF61C7B22EF000288BD /* Shell.swift */,
@@ -146,6 +152,8 @@
 				TargetAttributes = {
 					EE996DD21C3F13B5006A4764 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = JGMFM42JM6;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -179,7 +187,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = swiftlint;
+			shellScript = "#swiftlint";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -191,7 +199,9 @@
 				EEFEBCFE1C7B378A000288BD /* LogFile.swift in Sources */,
 				EE4884291C7B72540004F275 /* main.swift in Sources */,
 				EE0329DE1C5A137A00062541 /* DaemonManager.m in Sources */,
+				EEDE256F1FA907B000C80E11 /* App.swift in Sources */,
 				EEFEBCF71C7B22EF000288BD /* Shell.swift in Sources */,
+				EE7F75231FA36320009EC3B8 /* Daemon.swift in Sources */,
 				EE7F75211F9F8F75009EC3B8 /* Brew.swift in Sources */,
 				EE48842E1C7B818E0004F275 /* BeerImage.swift in Sources */,
 				EEFEBCF51C7AA98F000288BD /* NotificationManager.swift in Sources */,
@@ -249,6 +259,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "-DDEBUG";
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -303,11 +314,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
 				CREATE_INFOPLIST_SECTION_IN_BINARY = YES;
+				DEVELOPMENT_TEAM = JGMFM42JM6;
 				INFOPLIST_FILE = brewd/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = zerob.mxa.brewd;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "brewd/Supporting Files/brewd-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -318,11 +333,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
 				CREATE_INFOPLIST_SECTION_IN_BINARY = YES;
+				DEVELOPMENT_TEAM = JGMFM42JM6;
 				INFOPLIST_FILE = brewd/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = zerob.mxa.brewd;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "brewd/Supporting Files/brewd-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};

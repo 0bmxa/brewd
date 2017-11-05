@@ -16,12 +16,11 @@ enum BrewCommand: String {
 }
 
 
-@objc class BrewManager: NSObject {
+class BrewManager {
     let logFile: LogFile
     let notificationManager: NotificationManager
 
-    override init() {
-        let logFile = LogFile(path: "~/brewd.log", executableName: "brewd")
+    init(logFile: LogFile) {
         self.logFile = logFile
         self.notificationManager = NotificationManager(logFile: logFile)
     }

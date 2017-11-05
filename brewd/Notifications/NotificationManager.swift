@@ -43,10 +43,10 @@ extension NotificationManager: NSUserNotificationCenterDelegate {
     }
 
     func userNotificationCenter(_ center: NSUserNotificationCenter, didDeliver notification: NSUserNotification) {
-        self.logFile.log("Notification", notification.title ?? "[no title]", "delivered.")
+        self.logFile.log("Notification delivered:", notification.informativeText ?? "[no message]")
     }
 
     func userNotificationCenter(_ center: NSUserNotificationCenter, didActivate notification: NSUserNotification) {
-        self.logFile.log("Notification", notification.title ?? "[no title]", "activated.")
+        self.logFile.log("Notification activated:", notification.informativeText ?? "[no message]")
     }
 }
