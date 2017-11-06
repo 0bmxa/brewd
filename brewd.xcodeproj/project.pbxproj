@@ -166,7 +166,6 @@
 				TargetAttributes = {
 					EE996DD21C3F13B5006A4764 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = JGMFM42JM6;
 						LastSwiftMigration = 0910;
 						ProvisioningStyle = Automatic;
 					};
@@ -334,7 +333,7 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CREATE_INFOPLIST_SECTION_IN_BINARY = YES;
-				DEVELOPMENT_TEAM = JGMFM42JM6;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = brewd/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = zerob.mxa.brewd;
@@ -353,7 +352,7 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CREATE_INFOPLIST_SECTION_IN_BINARY = YES;
-				DEVELOPMENT_TEAM = JGMFM42JM6;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = brewd/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = zerob.mxa.brewd;
